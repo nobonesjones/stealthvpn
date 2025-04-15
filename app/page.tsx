@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
-import { Shield, Lock, Zap, Eye } from 'lucide-react'
+import { Shield, Lock, Eye } from 'lucide-react'
 import { FloatingPaths } from "@/components/ui/floating-paths"
 import { MotionDiv } from "@/components/providers/motion-provider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
