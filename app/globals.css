@@ -4,36 +4,74 @@
 
 @layer base {
   :root {
-    --background: 240 5% 6%;
-    --foreground: 60 5% 90%;
-    --primary: 90 63% 48%;
-    --primary-foreground: 60 0% 0%;
-    --secondary: 240 4% 15%;
-    --secondary-foreground: 60 5% 85%;
-    --accent: 240 0% 13%;
-    --accent-foreground: 60 0% 100%;
-    --destructive: 0 60% 50%;
-    --destructive-foreground: 0 0% 98%;
-    --muted: 240 5% 25%;
-    --muted-foreground: 60 5% 85%;
-    --card: 240 4% 10%;
-    --card-foreground: 60 5% 90%;
-    --popover: 240 5% 15%;
-    --popover-foreground: 60 5% 85%;
-    --border: 240 6% 20%;
-    --input: 240 6% 20%;
-    --ring: 240 5% 90%;
-    --radius: 0.5rem;
-  }
-}
+    /* Stealth/Tactical color scheme */
+    --color-background: 0 0% 6%;       /* Jet Black */
+    --color-surface: 0 0% 12%;         /* Dark Gray */
+    --color-muted: 0 0% 24%;           /* Gunmetal */
+    --color-border: 0 0% 36%;          /* Cool Gray */
+    --color-primary: 0 0% 80%;         /* Light Gray / Soft White */
+    --color-accent: 210 10% 30%;       /* Tactical Blue-Gray */
 
-@layer base {
-  * {
-    @apply border-border;
+    /* shadcn theme variables */
+    --background: var(--color-background);
+    --foreground: var(--color-primary);
+    --card: var(--color-surface);
+    --card-foreground: var(--color-primary);
+    --popover: var(--color-surface);
+    --popover-foreground: var(--color-primary);
+    --primary: var(--color-primary);
+    --primary-foreground: var(--color-background);
+    --secondary: var(--color-accent);
+    --secondary-foreground: var(--color-primary);
+    --muted: var(--color-muted);
+    --muted-foreground: var(--color-primary);
+    --accent: var(--color-accent);
+    --accent-foreground: var(--color-primary);
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: var(--color-primary);
+    --border: var(--color-border);
+    --input: var(--color-border);
+    --ring: var(--color-primary);
+    --radius: 0;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-primary font-body antialiased;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading uppercase tracking-wide;
+  }
+}
+
+@layer components {
+  /* Button styles */
+  .btn-primary {
+    @apply px-5 py-2 font-heading uppercase tracking-wide bg-primary text-background hover:bg-white transition-colors duration-200;
+  }
+
+  /* Section styles */
+  .section {
+    @apply py-20 px-6 bg-surface text-primary border-b border-border;
+  }
+
+  /* Card styles */
+  .card {
+    @apply p-6 bg-background border border-border text-primary shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  /* Navbar styles */
+  .navbar {
+    @apply w-full flex justify-between items-center px-6 py-4 bg-background border-b border-border;
+  }
+
+  /* Focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Input styles */
+  .input {
+    @apply px-4 py-2 bg-surface border border-border text-primary placeholder-muted focus:border-primary transition-colors duration-200;
+  }
 }

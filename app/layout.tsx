@@ -1,25 +1,30 @@
 import './globals.css'
-import Navbar from '../components/navbar'
-import { Bricolage_Grotesque } from 'next/font/google'
+import Navbar from '@/components/navbar'
+import Footer from '@/components/footer'
+// Import Orbitron and Inter fonts
+import { Orbitron, Inter } from 'next/font/google'
 import { cn } from '@/lib/utils'
 
 export const dynamic = 'force-dynamic'
 
-const fontHeading = Bricolage_Grotesque({
+// Configure Orbitron for headings
+const fontHeading = Orbitron({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-heading',
+  weight: ['400', '700', '900'], // Example weights
 })
 
-const fontBody = Bricolage_Grotesque({
+// Configure Inter for body
+const fontBody = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-body',
 })
 
 export const metadata = {
-  title: 'Supastar - Your SaaS Starter Kit',
-  description: 'Get started with your SaaS project in minutes, not months.',
+  title: 'Stealth VPN',
+  description: 'Tactical-grade VPN service.',
 }
 
 export default async function RootLayout({
@@ -27,19 +32,20 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
-
   return (
     <html lang="en">
-      <body 
+      <body
         className={cn(
           'antialiased',
           fontHeading.variable,
           fontBody.variable
         )}
       >
-        <Navbar />
-        <main>{children}</main>
+        <div className="min-h-screen flex flex-col bg-background">
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   )
